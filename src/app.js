@@ -34,10 +34,10 @@ app.post('/', upload.single('image'), function (req, res, next) {
             [realFile, file].forEach(tmpfile => {
                 fs.unlink(tmpfile, (err) => {
                     if (err) throw err;
-                });
+                })
             })
-        });
-    });
+        })
+    })
 })
 
 app.listen(3000, function () {
