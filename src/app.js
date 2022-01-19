@@ -2,13 +2,11 @@ const express = require('express'),
     multer = require('multer'),
     webp = require('webp-converter'),
     path = require('path'),
-    hbs = require('hbs'),
     fs = require('fs');
 
 const app = express()
 
 app.set("views", path.join(__dirname, "public"))
-app.set("view engine", "hbs")
 app.use(express.static(path.join(__dirname, "public")))
 
 var storage = multer.diskStorage({
@@ -21,7 +19,6 @@ var storage = multer.diskStorage({
 })
 
 var upload = multer({ storage: storage });
-
 
 app.get("/", function (req, res) {
     res.render("index");
